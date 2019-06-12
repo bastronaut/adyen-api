@@ -8,8 +8,7 @@ class PaymentMethodsService {
     }
 
     getPaymentMethods(amount, currency = "EUR", countryCode = "NL") {
-        console.log("wot");
-        console.log(amount, currency, countryCode);
+        console.log("wot im being called");
         return "1";
     }
 }

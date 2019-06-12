@@ -9,18 +9,18 @@ const root = constants.routes.root;
 
 router.get(root, function (req, res, next) {
 
-  console.log("goin in");
-  paymentMethodsService.getPaymentMethods(500);
-  paymentMethodsService.getPaymentMethods(500, "USD");
+  const result1 = paymentMethodsService.getPaymentMethods(500);
+  const result2 = paymentMethodsService.getPaymentMethods(500, "USD");
+  const result3 = paymentMethodsService.getPaymentMethods(500, "USD", "US");
 
-  paymentMethodsService.getPaymentMethods(500, "USD", "US");
 
 
 
   const amount = req.query.a;
   const currency = req.query.c;
   const countryCode = req.query.cc;
-  res.status(200).json({ "hi": "theres" });
+  res.status(200).json(result1);
+  // res.status(200).json({ "hi": "theres" });
 });
 
 module.exports = router;
