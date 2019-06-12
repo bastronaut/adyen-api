@@ -1,9 +1,18 @@
+const axios = require('axios');
+const apikey = require('../services/apikey-service').getApikey();
 
+class PaymentMethodsService {
 
+    constructor() {
 
-const paymentMethodsService = function() {
+    }
 
+    getPaymentMethods(amount, currency = "EUR", countryCode = "NL") {
+        console.log("wot");
+        console.log(amount, currency, countryCode);
+        return "1";
+    }
 }
 
 
-export default paymentMethodsService;
+module.exports = PaymentMethodsService;

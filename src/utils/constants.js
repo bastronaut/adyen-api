@@ -1,6 +1,7 @@
 
 const constants = {
     routes: {
+            root: "/",
             paymentMethods: "/paymentMethods"
         }
 };
