@@ -1,10 +1,9 @@
 const axios = require('axios');
-const requestService = require('../services/request-service');
+const HTTPRequestService = require('../services/request-service');
 const constants = require('../../src/utils/constants')
+const requestService = new HTTPRequestService();
 
 class PaymentMethodsService {
-
-    paymentMethodsEndpoint = constants.adyenEndpoints.paymentMethods;
 
     // Could potentially add constructor param for adyen endpoints so we can easily inject mocks
     constructor() { }
@@ -23,16 +22,23 @@ class PaymentMethodsService {
      * @param {*} currency 
      * @param {*} countryCode 
      */
-    getPaymentMethods(amount, currency = "EUR", countryCode = "NL") {
-
+    getPaymentMethods(amount, currency = 'EUR', countryCode = 'NL', callback) {
         const postData = {
-            countryCode = countryCode,
-            "amount": {
-                "currency": currency,
-                "value": amount
+            'countryCode': countryCode,
+            'amount': {
+                'currency': currency,
+                'value': amount
             }
         }
-        return requestService.post( , postData);
+
+        requestService.post(constants.adyenEndpoints.paymentMethods, postData)
+            .then((response) => {
+                callback(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                callback(error, { 'failure': 'todo' });
+            })
     }
 }
 
