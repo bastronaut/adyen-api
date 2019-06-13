@@ -9,10 +9,6 @@ jest.mock('../../src/services/payment-methods-service'); // to mock the PaymentM
 
 const getPaymentsSampleData = sampledata.getPaymentMethods;
 
-// https://jestjs.io/docs/en/mock-functions
-// http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
-
-
 beforeEach(() => {
   PaymentMethodsService.mockClear();
 });
