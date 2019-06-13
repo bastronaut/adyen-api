@@ -4,8 +4,6 @@ const constants = require('../../src/utils/constants')
 const sampledata = require('../../src/utils/sampledata')
 
 const paymentMethodsRoute = constants.routes.paymentMethods;
-const getPaymentsSampleData = sampledata.getPaymentMethods;
-
 
 /** Start tests */
 
@@ -29,9 +27,9 @@ describe('Test get payment methods 50 euros in NL', () => {
         return request(app).get(endpoint).then(response => {
             expect(response.statusCode).toBe(200);
             expect(hasPaymentMethods(response)).toBe(true);
-            expect(containsPaymentMethod(response, "Credit Card")).toBe(true);
-            expect(containsPaymentMethod(response, "iDEAL")).toBe(true);
-            expect(containsPaymentMethod(response, "WeChat Pay")).toBe(false);
+            expect(containsPaymentMethod(response, "scheme")).toBe(true);
+            expect(containsPaymentMethod(response, "ideal")).toBe(true);
+            expect(containsPaymentMethod(response, "wechatpayWeb")).toBe(false);
         })
     });
 })
@@ -44,8 +42,8 @@ describe('Test get payment methods 100 CNY in China', () => {
         return request(app).get(endpoint).then(response => {
             expect(response.statusCode).toBe(200);
             expect(hasPaymentMethods(response)).toBe(true);
-            expect(containsPaymentMethod(response, "iDEAL")).toBe(false);
-            expect(containsPaymentMethod(response, "WeChat Pay")).toBe(true);
+            expect(containsPaymentMethod(response, "ideal")).toBe(false);
+            expect(containsPaymentMethod(response, "wechatpayWeb")).toBe(true);
         })
     });
 })
@@ -65,7 +63,7 @@ function containsPaymentMethod(response, paymentMethod) {
 
     if (response.hasOwnProperty('paymentMethods')) {
         for (let i = 0; i < response.paymentMethods.length; i++) {
-            if (response.paymentMethods[i].name === paymentMethod) return true;
+            if (response.paymentMethods[i].type === paymentMethod) return true;
         }
     }
     return false;

@@ -2,7 +2,8 @@
 const constants = {
     routes: {
         root: "/",
-        paymentMethods: "/paymentMethods"
+        paymentMethods: "/paymentMethods",
+        payments: "/payments"
     },
     queryParameters: {
         amount: "a",
@@ -20,7 +21,13 @@ const constants = {
         paymentDetails: 'https://checkout-test.adyen.com/v46/payments/details',
         paymentSession: 'https://checkout-test.adyen.com/v46/paymentSession',
         paymentResults: 'https://checkout-test.adyen.com/v46/payments/result'
-    }
+    },
+    paymentMethodTypes: {
+        ideal: 'ideal',
+        scheme: 'scheme'
+    },
+    returnUrlReplace: '{id}',
+    returnUrl: 'http://bastronaut.dev/payment/' + this.returnUrlReplace
 };
 
 module.exports = constants

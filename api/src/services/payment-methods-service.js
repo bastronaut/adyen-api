@@ -1,4 +1,3 @@
-const axios = require('axios');
 const HTTPRequestService = require('../services/request-service');
 const constants = require('../../src/utils/constants')
 const requestService = new HTTPRequestService();
@@ -39,6 +38,25 @@ class PaymentMethodsService {
                 console.log(error);
                 callback(error, { 'failure': 'todo' });
             })
+    }
+
+    // TODO rename and implement
+    // https://docs.adyen.com/api-explorer/#/PaymentSetupAndVerificationService/v46/paymentMethods
+    // see dropdown, can use shopper reference to get the stored payment methods for customer
+    getPaymentMethodsPreviouslyStoredOneClick() {
+
+        /**
+         * {
+                "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+                "countryCode": "NL",
+                "amount": {
+                    "currency": "EUR",
+                    "value": 1000
+                },
+                "shopperReference": "yourShopperId_IOfW3k9G2PvXFu2j"
+                }
+         */
+
     }
 }
 

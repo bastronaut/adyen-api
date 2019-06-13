@@ -1,27 +1,21 @@
-/*
- for submitting raw card data merchant needs to be PCI l1 or l2 compliant. example call:
-{
-  "amount": {
-    "currency": "EUR",
-    "value": 1000
-  },
-  "reference": "Your order number",
-  "paymentMethod": {
-    "type": "scheme",
-    "number": "4111111111111111",
-    "expiryMonth": "08",
-    "expiryYear": "2018",
-    "cvc": "737"
-  },
-  "returnUrl": "https://your-company.com/checkout/",
-  "merchantAccount": "YourMerchantAccount"
-}
+const express = require('express');
+const router = express.Router();
+const constants = require('../utils/constants')
+const PaymentsService = require('../services/payments-service');
 
-If the payment is successful you receive:
-
-pspReference: Our unique identifier for the transaction.
-
-resultCode: Authorised. You can present this result to the shoppe
+const paymentsService = new PaymentsService();
+const root = constants.routes.root;
 
 
-*/
+router.post(root, function (req, res, next) {
+
+  if (!req.body.hasOwnProperty('paymentMethod') || req.body.paymentMethod.hasOwnProperty('type')) {
+    res.status(400).json({ "error": "todo" });
+  }
+
+  paymentsService.makePayment()
+
+});
+
+module.exports = router;
+
