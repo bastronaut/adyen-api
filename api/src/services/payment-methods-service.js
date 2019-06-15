@@ -17,24 +17,24 @@ class PaymentMethodsService {
      * shopperLocale = country + language code combination
      * shopperReference = The shopper's reference to uniquely identify this shopper
      * 
-     * @param {*} amount 
+     * @param {*} amoutvalue 
      * @param {*} currency 
      * @param {*} countryCode 
      */
-    getPaymentMethods(amount, currency = 'EUR', countryCode = 'NL', callback) {
+    getPaymentMethods(amoutvalue, currency = 'EUR', countryCode = 'NL', callback) {
         const postData = {
             'countryCode': countryCode,
             'amount': {
                 'currency': currency,
-                'value': amount
+                'value': amoutvalue
             }
         }
 
         requestService.post(constants.adyenEndpoints.paymentMethods, postData)
-            .then((response) => {
+            .then(response => {
                 callback(response.data);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
                 callback(error, { 'failure': 'todo' });
             })

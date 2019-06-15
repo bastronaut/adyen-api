@@ -26,10 +26,10 @@ describe('Test get payment methods 50 euros in NL', () => {
 
         return request(app).get(endpoint).then(response => {
             expect(response.statusCode).toBe(200);
-            expect(hasPaymentMethods(response)).toBe(true);
-            expect(containsPaymentMethod(response, "scheme")).toBe(true);
-            expect(containsPaymentMethod(response, "ideal")).toBe(true);
-            expect(containsPaymentMethod(response, "wechatpayWeb")).toBe(false);
+            expect(hasPaymentMethods(response.body)).toBe(true);
+            expect(containsPaymentMethod(response.body, "scheme")).toBe(true);
+            expect(containsPaymentMethod(response.body, "ideal")).toBe(true);
+            expect(containsPaymentMethod(response.body, "wechatpayWeb")).toBe(false);
         })
     });
 })
@@ -41,17 +41,17 @@ describe('Test get payment methods 100 CNY in China', () => {
 
         return request(app).get(endpoint).then(response => {
             expect(response.statusCode).toBe(200);
-            expect(hasPaymentMethods(response)).toBe(true);
-            expect(containsPaymentMethod(response, "ideal")).toBe(false);
-            expect(containsPaymentMethod(response, "wechatpayWeb")).toBe(true);
+            expect(hasPaymentMethods(response.body)).toBe(true);
+            expect(containsPaymentMethod(response.body, "ideal")).toBe(false);
+            expect(containsPaymentMethod(response.body, "wechatpayWeb")).toBe(true);
         })
     });
 })
 
 
 
-function hasPaymentMethods(response) {
-    return response.hasOwnProperty('paymentMethods') && response.paymentMethods.length > 0;
+function hasPaymentMethods(responseBody) {
+    return responseBody.hasOwnProperty('paymentMethods') && responseBody.paymentMethods.length > 0;
 }
 
 /**
@@ -59,11 +59,11 @@ function hasPaymentMethods(response) {
  * @param {*} response the paymentmethods data
  * @param {*} paymentMethod the payment method to test for, e.g. Credit Card or Ideal
  */
-function containsPaymentMethod(response, paymentMethod) {
+function containsPaymentMethod(responseBody, paymentMethod) {
 
-    if (response.hasOwnProperty('paymentMethods')) {
-        for (let i = 0; i < response.paymentMethods.length; i++) {
-            if (response.paymentMethods[i].type === paymentMethod) return true;
+    if (responseBody.hasOwnProperty('paymentMethods')) {
+        for (let i = 0; i < responseBody.paymentMethods.length; i++) {
+            if (responseBody.paymentMethods[i].type === paymentMethod) return true;
         }
     }
     return false;

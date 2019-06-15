@@ -27,7 +27,15 @@ const constants = {
         scheme: 'scheme'
     },
     returnUrlReplace: '{id}',
-    returnUrl: 'http://bastronaut.dev/payment/' + this.returnUrlReplace
+    returnUrl: 'http://bastronaut.dev/payment/' + this.returnUrlReplace,
+    errorStatus: {
+        badRequest: "Bad request",
+    },
+    errorMessages: {
+        paymentMethodMissing: "The payment method 'type' field is missing or invalid",
+        paymentAmountMissing: "The payment amount field is missing, requires an amount and currency",
+        genericError: "Making payment failed"
+    },
 };
 
 module.exports = constants
