@@ -14,7 +14,7 @@ describe('Test get payment methods 50 euros', () => {
 
         return request(app).get(endpoint).then(response => {
             expect(response.statusCode).toBe(200);
-            expect(hasPaymentMethods(response)).toBe(true);
+            expect(hasPaymentMethods(response.body)).toBe(true);
         })
     });
 })
@@ -29,7 +29,7 @@ describe('Test get payment methods 50 euros in NL', () => {
             expect(hasPaymentMethods(response.body)).toBe(true);
             expect(containsPaymentMethod(response.body, "scheme")).toBe(true);
             expect(containsPaymentMethod(response.body, "ideal")).toBe(true);
-            expect(containsPaymentMethod(response.body, "wechatpayWeb")).toBe(false);
+            expect(containsPaymentMethod(response.body, "wechatpay")).toBe(false);
         })
     });
 })
@@ -43,7 +43,7 @@ describe('Test get payment methods 100 CNY in China', () => {
             expect(response.statusCode).toBe(200);
             expect(hasPaymentMethods(response.body)).toBe(true);
             expect(containsPaymentMethod(response.body, "ideal")).toBe(false);
-            expect(containsPaymentMethod(response.body, "wechatpayWeb")).toBe(true);
+            expect(containsPaymentMethod(response.body, "wechatpay")).toBe(true);
         })
     });
 })

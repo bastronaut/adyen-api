@@ -14,20 +14,15 @@ class PaymentsService {
     // Assumes paymentData is somewhat complete and does no full validation for simplification
     makePayment(paymentData, callback) {
 
-        // const returnUrl = constants.returnUrl;
-
         const paymentMethod = paymentData.paymentMethod.type;
 
         switch (paymentMethod) {
             case constants.paymentMethodTypes.ideal:
-
-
-                this.makeIdealPayment(paymentData)
+                this._makeIdealPayment(paymentData)
                     .then(response => {
-
                         callback(response);
                     }).catch(error => {
-                        callback('error', error);
+                        throw error;
                     })
                 break;
 
@@ -41,13 +36,11 @@ class PaymentsService {
         }
     }
 
-    _makeIdealPayment(paymentData, ) {
+    _makeIdealPayment(paymentData) {
 
-        // some logic to create a valid return url
         const returnUrl = constants.returnUrl.replace(constants.returnUrlReplace, paymentData.reference);
-
         const amount = makeAmountObject(paymentData.amount.currency, paymentData.amount.value);
-        const reference = paymentData.reference;
+
         const postData = {
             amount: amount,
             reference: paymentData.reference,
@@ -58,6 +51,21 @@ class PaymentsService {
             returnUrl: returnUrl
         };
         return requestService.post(constants.adyenEndpoints.payments, postData);
+    }
+
+    _makeCreditCardPayment(paymentData) {
+
+        const returnUrl = constants.returnUrl.replace(constants.returnUrlReplace, paymentData.reference);
+        const amount = makeAmountObject(paymentData.amount.currency, paymentData.amount.value);
+        const postData = {
+            amount: amount,
+            reference: paymentData.reference,
+            paymentMethod: {
+                type: 'scheme'
+                //  todo
+            },
+            returnUrl: returnUrl
+        }
     }
 
 

@@ -22,14 +22,9 @@ router.post(root, function (req, res, next) {
     return returnErrorResponse(constants.errorMessages.paymentAmountMissing, res);
   }
 
-
   try {
-    paymentsService.makePayment(req.body, (resultBody, error) => {
-      if (error) {
-        return returnErrorResponse(error, res);
-      } else {
-        res.status(200).json(resultBody);
-      }
+    paymentsService.makePayment(req.body, (resultBody) => {
+      res.status(200).json(resultBody);
     });
   } catch (error) {
     return returnErrorResponse(error, error);
@@ -43,7 +38,7 @@ const isValidPaymentMethod = (requestBody) => {
 }
 
 const isValidPaymentAmount = (requestBody) => {
-  return (req.body.hasOwnProperty('amount') && req.body.amount.hasOwnProperty('value') && req.body.amount.hasOwnProperty('currency'));
+  return (requestBody.hasOwnProperty('amount') && requestBody.amount.hasOwnProperty('value') && requestBody.amount.hasOwnProperty('currency'));
 }
 
 const createErrorMessage = (errorStatus, errorMessage) => {

@@ -27,7 +27,7 @@ const constants = {
         scheme: 'scheme'
     },
     returnUrlReplace: '{id}',
-    returnUrl: 'http://bastronaut.dev/payment/' + this.returnUrlReplace,
+    returnUrl: 'http://bastronaut.dev/payment/{id}',
     errorStatus: {
         badRequest: "Bad request",
     },

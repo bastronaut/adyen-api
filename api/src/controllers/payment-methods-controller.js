@@ -5,15 +5,18 @@ const PaymentMethodsService = require('../services/payment-methods-service');
 
 const paymentMethodsService = new PaymentMethodsService();
 const root = constants.routes.root;
+const makeAmountObject = require('../utils/utilfunctions').makeAmountObject();
 
 
 router.get(root, function (req, res, next) {
 
-  const amount = req.query.a;
+  const amountValue = req.query.a;
   const currency = req.query.c;
   const countryCode = req.query.cc;
 
-  paymentMethodsService.getPaymentMethods(amount, currency, countryCode, (response, error) => {
+  const amount = makeAmountObject(amountValue, currency)
+
+  paymentMethodsService.getPaymentMethods(amount, countryCode, (response, error) => {
     if (error) {
       res.status(400).json(error);
     } else {
