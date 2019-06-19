@@ -1,0 +1,13 @@
+.headertext {
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.green, a {
+    color: #0ABF53;
+}
+
+.btn.btn-primary {
+    background-color: #00112C;
+    border-color:  #00112C;
+}
