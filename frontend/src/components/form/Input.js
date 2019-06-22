@@ -6,8 +6,8 @@ import Label from './Label';
 function Input(props) {
     return (
         <div className="mb-3">
-            <Label for={props.id} text={props.label} />
-            <InputField placeholder={props.placeHolder} id={props.id} />
+            <Label htmlFor={props.id} text={props.label} />
+            <InputField {...props} />
         </div>
     );
 }

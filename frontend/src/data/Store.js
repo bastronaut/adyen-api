@@ -14,7 +14,7 @@ class PaymentMethodsStore extends ReduceStore {
 
     reduce(state, action) {
         switch (action.type) {
-            case ActionTypes.ADD_TODO:
+            case ActionTypes.GET_PAYMENT_METHODS:
                 // Do nothing for now, we will add logic here soon!
                 return state;
 

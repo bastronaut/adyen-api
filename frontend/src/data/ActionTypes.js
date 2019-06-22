@@ -1,5 +1,7 @@
 const ActionTypes = {
     ADD_TODO: 'ADD_TODO',
+    GET_PAYMENT_METHODS: 'GET_PAYMENT_METHODS',
+    GET_PAYMENT_METHODS_FAILED: 'GET_PAYMENT_METHODS_FAILED'
 };
 
 export default ActionTypes;

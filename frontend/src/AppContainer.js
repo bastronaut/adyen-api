@@ -1,6 +1,6 @@
 import App from './App';
 import { Container } from 'flux/utils';
-import PaymentMethodsStore from './data/PaymentMethodsStore';
+import PaymentMethodsStore from './data/Store';
 
 function getStores() {
     return [

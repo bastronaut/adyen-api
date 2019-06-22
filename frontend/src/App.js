@@ -1,6 +1,6 @@
 import React from 'react';
-import GetPayments from './pages/getpayments/GetPayments';
-import Payments from './pages/payments/Payments';
+import GetPayments from './views/getpayments/GetPayments';
+import Payments from './views/payments/Payments';
 import Title from './components/Title';
 import Navigation from './components/Navigation';
 import './css/App.css';
