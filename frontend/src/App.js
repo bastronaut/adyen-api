@@ -5,16 +5,16 @@ import Title from './components/Title';
 import Navigation from './components/Navigation';
 import './css/App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App container">
-      <Navigation />
+      <Navigation {...props} />
       <Title text="Adyen API experiments" customClass="green my-4 headertext" />
-      <hr class="my-2" />
+      <hr className="my-2" />
 
-      <GetPayments />
-      <hr class="my-2" />
-      <Payments />
+      <GetPayments {...props} />
+      <hr className="my-2" />
+      <Payments {...props} />
 
     </div>
   );

@@ -12,8 +12,8 @@ class GetPaymentsForm extends React.Component {
 
         this.state = {
             amountValue: 0,
-            currency: "",
-            countryCode: ""
+            currency: "EUR",
+            countryCode: "NL"
         }
     }
 
@@ -27,7 +27,8 @@ class GetPaymentsForm extends React.Component {
                     <Input id="gpm-countryCode" label="Country Code" placeholder="NL" updateValue={event => this.updateCountryCode(event)} />
 
                 </div>
-                <Button type="button" text="submit" customClass="primary" id="getPaymentMethodsSubmit" onClick={this.handleSubmit} />
+                <Button type="button" text="submit" customClass="primary" id="getPaymentMethodsSubmit" onClick={() => this.handleSubmit()} />
+
             </form>
         );
     }
@@ -51,7 +52,7 @@ class GetPaymentsForm extends React.Component {
     }
 
     handleSubmit() {
-        Actions.getPaymentMethods(this.state.amountValue, this.state.currency, this.state.countryCode);
+        this.props.getPaymentMethods(this.state.amountValue, this.state.currency, this.state.countryCode);
     }
 }
 

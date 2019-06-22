@@ -10,14 +10,14 @@ function GetPayments(props) {
         <div>
 
             <Title text="Payment Methods" type="h3" />
-            <div class="row">
-                <div class="col">
+            <div className="row">
+                <div className="col">
                     <Title text="Get payment methods" type="h3" />
-                    <GetPaymentsForm />
+                    <GetPaymentsForm {...props} />
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                     <Title text="Presets" type="h3" />
-                    <GetPaymentMethodsPresetsTable />
+                    <GetPaymentMethodsPresetsTable {...props} />
                 </div>
             </div>
 

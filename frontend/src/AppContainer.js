@@ -1,16 +1,18 @@
 import App from './App';
 import { Container } from 'flux/utils';
-import PaymentMethodsStore from './data/Store';
+import Store from './data/Store';
+import Actions from './data/Actions';
 
 function getStores() {
     return [
-        PaymentMethodsStore,
+        Store,
     ];
 }
 
 function getState() {
     return {
-        todos: PaymentMethodsStore.getState(),
+        paymentMethods: Store.getState(),
+        getPaymentMethods: Actions.getPaymentMethods
     };
 }
 
