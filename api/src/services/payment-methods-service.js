@@ -10,23 +10,13 @@ class PaymentMethodsService {
     /**
      * https://docs.adyen.com/api-explorer/#/PaymentSetupAndVerificationService/paymentMethods
      * 
-     * Additional available params in api:
-     * allowedPaymentMethods = [], 
-     * blockedPaymentMethods = [], 
-     * channel = iOS, Android, Web
-     * shopperLocale = country + language code combination
-     * shopperReference = The shopper's reference to uniquely identify this shopper
-     * 
-     * @param {*} amoutvalue 
-     * @param {*} currency 
-     * @param {*} countryCode 
      */
-    getPaymentMethods(amoutvalue, currency = 'EUR', countryCode = 'NL', callback) {
+    getPaymentMethods(amountValue, currency, countryCode, callback) {
         const postData = {
             'countryCode': countryCode,
             'amount': {
-                'currency': currency,
-                'value': amoutvalue
+                value: amountValue,
+                currency: currency
             }
         }
 

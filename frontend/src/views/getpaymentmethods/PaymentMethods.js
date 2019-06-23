@@ -1,8 +1,8 @@
 
 import React from 'react';
-import GetPaymentsForm from './GetPaymentsForm'
-import GetPaymentsResult from './GetPaymentsResult'
-import GetPaymentMethodsPresetsTable from './GetPaymentsPresetsTable'
+import GetPaymentMethodsForm from './PaymentMethodsForm'
+import GetPaymentsResult from './PaymentMethodsResults'
+import GetPaymentMethodsPresetsTable from './PaymentMethodsPresetsTable'
 import Title from '../../components/Title';
 
 function GetPayments(props) {
@@ -13,7 +13,7 @@ function GetPayments(props) {
             <div className="row">
                 <div className="col">
                     <Title text="Get payment methods" type="h3" />
-                    <GetPaymentsForm {...props} />
+                    <GetPaymentMethodsForm {...props} />
                 </div>
                 <div className="col-4">
                     <Title text="Presets" type="h3" />
@@ -21,7 +21,7 @@ function GetPayments(props) {
                 </div>
             </div>
 
-            <GetPaymentsResult />
+            <GetPaymentsResult {...props} />
         </div>
     );
 }

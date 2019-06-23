@@ -17,7 +17,6 @@ const Actions = {
                     currency: currency,
                     countryCode: countryCode,
                     paymentMethods: paymentMethods
-
                 });
             })
             .catch(error => {
@@ -30,6 +29,14 @@ const Actions = {
             })
 
     },
+    setGetPaymentMethodsPreset(amountValue, currency, countryCode) {
+        Dispatcher.dispatch({
+            type: ActionTypes.GET_PAYMENT_METHODS_SET_PRESET,
+            amountValue,
+            currency,
+            countryCode
+        })
+    }
 };
 
 export default Actions;

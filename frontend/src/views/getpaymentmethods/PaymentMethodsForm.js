@@ -11,7 +11,7 @@ class GetPaymentsForm extends React.Component {
         super(props);
 
         this.state = {
-            amountValue: 0,
+            amountValue: 1,
             currency: "EUR",
             countryCode: "NL"
         }

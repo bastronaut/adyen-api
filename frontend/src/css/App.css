@@ -11,3 +11,7 @@
     background-color: #00112C;
     border-color:  #00112C;
 }
+
+.list-group-item {
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import GetPayments from './views/getpayments/GetPayments';
+import GetPaymentMethods from './views/getpaymentmethods/PaymentMethods';
 import Payments from './views/payments/Payments';
 import Title from './components/Title';
 import Navigation from './components/Navigation';
@@ -12,7 +12,7 @@ function App(props) {
       <Title text="Adyen API experiments" customClass="green my-4 headertext" />
       <hr className="my-2" />
 
-      <GetPayments {...props} />
+      <GetPaymentMethods {...props} />
       <hr className="my-2" />
       <Payments {...props} />
 
