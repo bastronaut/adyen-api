@@ -1,18 +1,24 @@
 import App from './App';
 import { Container } from 'flux/utils';
-import Store from './data/Store';
+import PaymentMethodsResultsStore from './data/PaymentMethodsResultsStore';
+import PaymentMethodsPresetsStore from './data/PaymentMethodsPresetsStore';
 import Actions from './data/Actions';
 
 function getStores() {
     return [
-        Store,
+        PaymentMethodsResultsStore, PaymentMethodsPresetsStore
     ];
 }
 
 function getState() {
     return {
-        paymentMethods: Store.getState(),
-        getPaymentMethods: Actions.getPaymentMethods
+
+        // TODO
+        // create multiple stores and store result here
+        paymentMethods: PaymentMethodsResultsStore.getState(),
+        paymentMethodsPresets: PaymentMethodsPresetsStore.getState(),
+        getPaymentMethods: Actions.getPaymentMethods,
+        setGetPaymentMethodsPreset: Actions.setGetPaymentMethodsPreset
     };
 }
 

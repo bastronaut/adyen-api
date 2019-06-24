@@ -10,8 +10,6 @@ function Alert(props) {
         displayText = props.text;
     }
 
-    console.log(displayText);
-
     return (
         <div className={"alert alert-" + (props.customClass ? props.customClass : "primary")} id={props.id} role="alert">
             <pre>{displayText}</pre>

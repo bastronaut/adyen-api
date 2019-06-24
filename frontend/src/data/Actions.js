@@ -6,6 +6,7 @@ const PAYMENTMEHODSENDPOINT = 'paymentMethods';
 const Actions = {
     getPaymentMethods(amountValue, currency, countryCode) {
 
+        console.log(" get payments  ASDASD called ");
 
         const url = PAYMENTMEHODSENDPOINT + '?a=' + amountValue + '&c=' + currency + '&cc=' + countryCode;
 
@@ -13,29 +14,36 @@ const Actions = {
             .then(paymentMethods => {
                 Dispatcher.dispatch({
                     type: ActionTypes.GET_PAYMENT_METHODS,
-                    amountValue: amountValue,
-                    currency: currency,
-                    countryCode: countryCode,
+                    getPaymentMethodsValues: {
+                        amountValue: amountValue,
+                        currency: currency,
+                        countryCode: countryCode,
+                    },
                     paymentMethods: paymentMethods
                 });
             })
             .catch(error => {
                 Dispatcher.dispatch({
                     type: ActionTypes.GET_PAYMENT_METHODS_FAILED,
-                    amountValue: amountValue,
-                    currency: currency,
-                    countryCode: countryCode,
+                    getPaymentMethodsValues: {
+                        amountValue: amountValue,
+                        currency: currency,
+                        countryCode: countryCode,
+                    },
                 })
             })
 
     },
-    setGetPaymentMethodsPreset(amountValue, currency, countryCode) {
+
+    setGetPaymentMethodsPreset(preset) {
         Dispatcher.dispatch({
             type: ActionTypes.GET_PAYMENT_METHODS_SET_PRESET,
-            amountValue,
-            currency,
-            countryCode
-        })
+            getPaymentMethodsValues: {
+                amountValue: preset.amountValue,
+                currency: preset.currency,
+                countryCode: preset.countryCode,
+            },
+        });
     }
 };
 
