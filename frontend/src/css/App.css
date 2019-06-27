@@ -7,6 +7,10 @@
     color: #0ABF53;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #0ABF53;
+}
+
 .btn.btn-primary {
     background-color: #00112C;
     border-color:  #00112C;

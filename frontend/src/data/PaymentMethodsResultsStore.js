@@ -14,7 +14,7 @@ class PaymentMethodsResultsStore extends ReduceStore {
 
     reduce(state, action) {
 
-        console.log(state);
+
         switch (action.type) {
             case ActionTypes.GET_PAYMENT_METHODS:
                 return action.paymentMethods;

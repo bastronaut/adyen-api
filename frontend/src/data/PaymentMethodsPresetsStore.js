@@ -13,8 +13,6 @@ class PaymentMethodsPresetsStore extends ReduceStore {
     }
 
     reduce(state, action) {
-
-        console.log(state);
         switch (action.type) {
             case ActionTypes.GET_PAYMENT_METHODS_SET_PRESET:
                 return action.getPaymentMethodsValues;

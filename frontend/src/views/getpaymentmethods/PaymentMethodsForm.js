@@ -5,15 +5,16 @@ import Button from '../../components/Button';
 import axios from 'axios'
 import Actions from '../../data/Actions';
 
-class GetPaymentsForm extends React.Component {
+class GetPaymentMethodsForm extends React.Component {
 
     constructor(props) {
         super(props);
 
+        // Defaults
         this.state = {
-            amountValue: props.getPaymentMethods.amountValue,
-            currency: props.getPaymentMethods.currency,
-            countryCode: props.getPaymentMethods.countryCode
+            amountValue: this.props.get,
+            currency: "EUR",
+            countryCode: "NL",
         }
     }
 
@@ -22,7 +23,7 @@ class GetPaymentsForm extends React.Component {
             <form id="getPaymentMethodsForm">
                 <div className="form-group my-4">
 
-                    <Input id="gpm-amountValue" label="Amount" placeholder="amount" updateValue={event => this.updateAmountValue(event)} />
+                    <Input id="gpm-amountValue" label="Amount" placeholder="amount" value={this.state.amountValue} updateValue={event => this.updateAmountValue(event)} />
                     <Input id="gpm-currency" label="Currency" placeholder="EUR" updateValue={event => this.updateCurrency(event)} />
                     <Input id="gpm-countryCode" label="Country Code" placeholder="NL" updateValue={event => this.updateCountryCode(event)} />
 
@@ -56,6 +57,6 @@ class GetPaymentsForm extends React.Component {
     }
 }
 
-export default GetPaymentsForm;
+export default GetPaymentMethodsForm;
 
 

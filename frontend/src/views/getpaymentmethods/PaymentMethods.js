@@ -5,7 +5,7 @@ import GetPaymentsResult from './PaymentMethodsResults'
 import GetPaymentMethodsPresetsTable from './PaymentMethodsPresetsTable'
 import Title from '../../components/Title';
 
-function GetPayments(props) {
+function GetPaymentMethods(props) {
     return (
         <div>
 
@@ -26,6 +26,6 @@ function GetPayments(props) {
     );
 }
 
-export default GetPayments;
+export default GetPaymentMethods;
 
 

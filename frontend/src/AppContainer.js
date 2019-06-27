@@ -12,9 +12,6 @@ function getStores() {
 
 function getState() {
     return {
-
-        // TODO
-        // create multiple stores and store result here
         paymentMethods: PaymentMethodsResultsStore.getState(),
         paymentMethodsPresets: PaymentMethodsPresetsStore.getState(),
         getPaymentMethods: Actions.getPaymentMethods,

@@ -1,8 +1,8 @@
 
 import React from 'react';
-import PaymentsForm from './PaymentsForm';
-import PaymentsResult from './PaymentsResult';
-import PaymentsPresetsTable from './PaymentsPresetsTable';
+import PaymentsiDeal from './PaymentsiDeal';
+import PaymentsCard from './PaymentsCard';
+import PaymentsDropIn from './PaymentsDropIn';
 import Title from '../../components/Title';
 
 function Payments(props) {
@@ -11,16 +11,29 @@ function Payments(props) {
             <Title text="Payments" type="h1" />
             <div className="row">
                 <div className="col">
-                    <Title text="Payments POST form" type="h3" />
-                    <PaymentsForm />
-                </div>
-                <div className="col-4">
-                    <Title text="Presets" type="h3" />
-                    <PaymentsPresetsTable />
+                    <ul class="nav nav-tabs my-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" >iDEAL payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Credit Card payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Drop-in components  </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <PaymentsResult />
+            <div>
+                <PaymentsiDeal {...props} />
+            </div>
+            <div>
+                <PaymentsCard {...props} />
+            </div>
+            <div>
+                <PaymentsDropIn {...props} />
+            </div>
         </div>
     );
 }

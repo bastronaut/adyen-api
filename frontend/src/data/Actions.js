@@ -6,8 +6,6 @@ const PAYMENTMEHODSENDPOINT = 'paymentMethods';
 const Actions = {
     getPaymentMethods(amountValue, currency, countryCode) {
 
-        console.log(" get payments  ASDASD called ");
-
         const url = PAYMENTMEHODSENDPOINT + '?a=' + amountValue + '&c=' + currency + '&cc=' + countryCode;
 
         Api.get(url)
@@ -32,7 +30,6 @@ const Actions = {
                     },
                 })
             })
-
     },
 
     setGetPaymentMethodsPreset(preset) {
