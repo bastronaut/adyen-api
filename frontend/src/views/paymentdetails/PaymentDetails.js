@@ -4,7 +4,7 @@ import Title from '../../components/Title';
 
 function PaymentDetails(props) {
     return (
-        <div className="my-5">
+        <div className="my-5" id="paymentDetails">
             <Title text="Payment Details" type="h1" />
             <div className="row">
                 <div className="col">

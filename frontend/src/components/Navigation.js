@@ -12,6 +12,9 @@ function Navigation(props) {
             <li className="nav-item">
                 <a className="nav-link" href="#paymentsForm">Payments</a>
             </li>
+            <li className="nav-item">
+                <a className="nav-link" href="#paymentDetails">Payment Details</a>
+            </li>
         </ul>
     );
 }

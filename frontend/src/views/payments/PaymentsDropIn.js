@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentsPresetsTable from './PaymentsPresetsTable';
+import PaymentsPresetsTable from './PaymentsiDealPresetsTable';
 import Title from '../../components/Title';
 
 function PaymentsDropIn(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentsPresetsTable from './PaymentsPresetsTable';
+import PaymentsPresetsTable from './PaymentsiDealPresetsTable';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
 import Input from '../../components/form/Input';
@@ -9,7 +9,7 @@ function PaymentsCard(props) {
     return (
         <div className="row">
             <div className="col">
-                <Title text="Payments Drop In Components" type="h3" />
+                <Title text="Card Payments" type="h3" />
 
                 <form id="paymentsForm">
                     <div className="form-group my-4">
