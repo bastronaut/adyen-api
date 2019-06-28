@@ -4,7 +4,7 @@ import Api from './Api';
 
 const PAYMENTMEHODSENDPOINT = 'paymentMethods';
 const Actions = {
-    getPaymentMethods(amountValue, currency, countryCode) {
+    getPaymentMethods(amountValue, currency, countryCode, expectedResponse = "") {
 
         const url = PAYMENTMEHODSENDPOINT + '?a=' + amountValue + '&c=' + currency + '&cc=' + countryCode;
 
@@ -12,35 +12,23 @@ const Actions = {
             .then(paymentMethods => {
                 Dispatcher.dispatch({
                     type: ActionTypes.GET_PAYMENT_METHODS,
-                    getPaymentMethodsValues: {
-                        amountValue: amountValue,
-                        currency: currency,
-                        countryCode: countryCode,
-                    },
-                    paymentMethods: paymentMethods
+                    result: paymentMethods,
+                    expectedResult: expectedResponse
                 });
             })
             .catch(error => {
                 Dispatcher.dispatch({
                     type: ActionTypes.GET_PAYMENT_METHODS_FAILED,
-                    getPaymentMethodsValues: {
-                        amountValue: amountValue,
-                        currency: currency,
-                        countryCode: countryCode,
-                    },
+                    error: error
                 })
             })
     },
-
-    setGetPaymentMethodsPreset(preset) {
+    resetPaymentMethods() {
         Dispatcher.dispatch({
-            type: ActionTypes.GET_PAYMENT_METHODS_SET_PRESET,
-            getPaymentMethodsValues: {
-                amountValue: preset.amountValue,
-                currency: preset.currency,
-                countryCode: preset.countryCode,
-            },
-        });
+            type: ActionTypes.GET_PAYMENT_METHODS,
+            result: "",
+            expectedResult: ""
+        })
     }
 };
 

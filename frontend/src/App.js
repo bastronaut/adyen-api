@@ -10,9 +10,8 @@ function App(props) {
   return (
     <div className="App container">
       <Navigation {...props} />
-      <Title text="Adyen API experiments" customClass="green my-4 headertext" />
       <hr className="my-2" />
-
+    
       <GetPaymentMethods {...props} />
       <hr className="my-2" />
       <Payments {...props} />

@@ -22,6 +22,10 @@ function Title(props) {
             return (
                 <h4 className={props.customClass}>{props.text}</h4>
             );
+        case "h5":
+            return (
+                <h5 className={props.customClass}>{props.text}</h5>
+            );
         default:
             return (<h1 className={props.customClass}>{props.text}</h1>);
     }

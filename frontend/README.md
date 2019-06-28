@@ -41,4 +41,6 @@ a field displaying the adyen response, and an expected response
 ### Payments form:
 
 * Use drop-in components
-* Use custom script
+* Use iDEAL form
+* Use variations of credit card
+* Use custom

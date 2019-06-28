@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { ReduceStore } from 'flux/utils';
 import ActionTypes from './ActionTypes';
 import Dispatcher from './Dispatcher';
@@ -9,15 +8,17 @@ class PaymentMethodsResultsStore extends ReduceStore {
     }
 
     getInitialState() {
-        return Immutable.OrderedMap();
+        return {};
     }
 
     reduce(state, action) {
 
-
         switch (action.type) {
             case ActionTypes.GET_PAYMENT_METHODS:
-                return action.paymentMethods;
+                return {
+                    result: action.result,
+                    expectedResult: action.expectedResult
+                }
             default:
                 return state;
         }
