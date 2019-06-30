@@ -20,7 +20,7 @@ class HTTPRequestService {
         // Add the merchant account to any post data
         data.merchantAccount = this.merchantAccount;
 
-        console.log('posting for paymentMethods with data:');
+        console.log(`posting to ${endpoint} with data:`);
         console.log(data);
         return axios.post(endpoint, data);
     }

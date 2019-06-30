@@ -22,13 +22,15 @@ router.post(root, function (req, res, next) {
     return returnErrorResponse(constants.errorMessages.paymentAmountMissing, res);
   }
 
-  try {
-    paymentsService.makePayment(req.body, (resultBody) => {
-      res.status(200).json(resultBody);
-    });
-  } catch (error) {
-    return returnErrorResponse(error, error);
-  }
+
+  paymentsService.makePayment(req.body, (response, error) => {
+    if (error) {
+      res.status(400).json(error);
+    } else {
+      res.status(200).json(response);
+    }
+  });
+
 });
 
 

@@ -1,12 +1,12 @@
 
 
 import React from 'react';
-import Title from './Title';
+// import Title from './Title';
 
 function Navigation(props) {
 
     return (
-        <div className="row">
+        <div className="row my-4">
             <div className="col" >
                 <p className="green headertext">Adyen API experiments</p>
             </div>

@@ -9,7 +9,6 @@ function PaymentsCard(props) {
     return (
         <div className="row">
             <div className="col">
-                <Title text="Card Payments" type="h3" />
 
                 <form id="paymentsForm">
                     <div className="form-group my-4">
@@ -25,7 +24,15 @@ function PaymentsCard(props) {
 
                         <Input id="pm-countryCode" label="Country Code" placeholder="NL" />
 
-                        <Input id="pm-paymentMethodType" label="Payment Method Type" value="scheme" disabled="true" />
+                        <div className="row">
+                            <div className="col" >
+                                <Input id="pm-paymentMethodType" label="Payment Method Type" value="scheme" disabled="true" />
+                            </div>
+                            <div className="col" >
+                                <Input id="pm-paymentMethodType" label="Custom Card Payment Type" value="unsecuredFields" disabled="true" />
+                            </div>
+                        </div>
+
 
                         <Input id="pm-cc-nr" label="Number" placeholder="4111111111111111" />
 
@@ -46,16 +53,17 @@ function PaymentsCard(props) {
                         <Input id="pm-reference" label="Payment reference" value="123" />
 
                     </div>
-                    <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" />
+                    <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" onClick={props.handleSubmit} />
+                    <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" onClick={() => props.resetPayments()} />
                 </form>
 
 
             </div>
             <div className="col-4">
                 <Title text="Presets" type="h3" />
-                <PaymentsPresetsTable />
+                {/* <PaymentsPresetsTable /> */}
             </div>
-        </div>
+        </div >
 
     );
 }

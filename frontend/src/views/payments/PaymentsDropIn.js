@@ -6,9 +6,8 @@ function PaymentsDropIn(props) {
     return (
         <div className="row">
             <div className="col">
-                <Title text="Payments Drop In Components" type="h3" />
 
-                
+                insert js
             </div>
             <div className="col-4">
                 <Title text="Presets" type="h3" />

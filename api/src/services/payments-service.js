@@ -6,8 +6,6 @@ const requestService = new HTTPRequestService();
 /**
  * Adyens API supports many different types of payments, such as 3D secure (1 and 2), using secured fields,
  * using a tokenizer service to store the details. This is just for cards, theres also many different other types.
- * 
- * 
  */
 class PaymentsService {
 
@@ -22,9 +20,9 @@ class PaymentsService {
             case constants.paymentMethodTypes.ideal:
                 this._makeIdealPayment(paymentData)
                     .then(response => {
-                        callback(response);
+                        callback(response.data);
                     }).catch(error => {
-                        throw error;
+                        callback(error, { 'failure': error });
                     });
 
                 break;
@@ -35,7 +33,7 @@ class PaymentsService {
                     .then(response => {
                         callback(response);
                     }).catch(error => {
-                        throw error;
+                        callback(error, { 'failure': error });
                     });
 
                 break;

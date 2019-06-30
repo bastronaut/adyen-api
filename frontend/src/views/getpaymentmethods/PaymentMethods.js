@@ -4,6 +4,7 @@ import GetPaymentMethodsForm from './PaymentMethodsForm'
 import GetPaymentsResult from './PaymentMethodsResults'
 import GetPaymentMethodsPresetsTable from './PaymentMethodsPresetsTable'
 import Title from '../../components/Title';
+import { PaymentMethod } from '../dto/PaymentMethod';
 
 class GetPaymentMethods extends React.Component {
 
@@ -21,11 +22,9 @@ class GetPaymentMethods extends React.Component {
     render() {
         return (
             <div>
-
                 <Title text="Payment Methods" type="h1" />
                 <div className="row">
                     <div className="col">
-                        <Title text="Get payment methods" type="h3" />
                         <GetPaymentMethodsForm {...this.props}
                             updateAmount={event => this.updateAmountValue(event)}
                             updateCurrency={event => this.updateCurrency(event)}
@@ -66,6 +65,8 @@ class GetPaymentMethods extends React.Component {
         });
     }
 
+
+
     clickPresetTable(preset) {
         this.setState({
             countryCode: preset.countryCode,
@@ -74,8 +75,15 @@ class GetPaymentMethods extends React.Component {
         }, () => this.handleSubmit(preset.expectedResponse));
     }
 
+    /**
+     * Dirty API, allows passing an expected response for a submit, which serves to compare actual
+     * output with an expected output. 
+     * @param {} expectedResponse Optional string of expected submti response
+     */
     handleSubmit(expectedResponse) {
-        this.props.getPaymentMethods(this.state.amountValue, this.state.currency, this.state.countryCode, expectedResponse);
+        const paymentMethod = new PaymentMethod(this.state.amountValue, this.state.currency, this.state.countryCode);
+
+        this.props.getPaymentMethods(paymentMethod, expectedResponse);
     }
 }
 

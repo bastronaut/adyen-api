@@ -8,34 +8,36 @@ function PaymentsIdeal(props) {
     return (
         <div className="row">
             <div className="col">
-                <Title text="iDEAL Payments form" type="h3" />
 
                 <form id="paymentsForm">
                     <div className="form-group my-4">
 
                         <div className="row">
                             <div className="col" >
-                                <Input id="pm-amountValue" label="Amount" placeholder="amount" />
+                                <Input id="pm-amountValue" value={props.amountValue} label="Amount" placeholder="amount" updateValue={props.updateAmount} />
                             </div>
                             <div className="col">
-                                <Input id="pm-currency" label="Currency" placeholder="EUR" />
+                                <Input id="pm-currency" value={props.currency} label="Currency" placeholder="EUR" updateValue={props.updateCurrency} />
                             </div>
                         </div>
 
-                        <Input id="pm-countryCode" label="Country Code" placeholder="NL" />
-                        <Input id="pm-paymentMethodType" label="Payment Method Type" value="ideal" disabled="true" />
-                        <Input id="pm-issuer" label="Issuer" value="ideal" />
+                        <Input id="pm-countryCode" label={props.countryCode} placeholder="NL" updateValue={props.updateCountryCode} />
 
-                        <Input id="pm-reference" label="Payment reference" value="123" />
+                        <Input id="pm-paymentMethodType" label="Payment Method Type" value="ideal" disabled="true" />
+
+                        <Input id="pm-issuer" label="Issuer ID" value={props.issuerId} placeholder="Issuer ID" updateValue={props.updateIssuer} />
+
+                        <Input id="pm-reference" label="Payment reference" placeholder="12345" updateValue={props.updatePaymentReference} />
 
                     </div>
-                    <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" />
+                    <Button type="button" text="submit" customClass="primary mr-2" id="paymentsSubmit" onClick={props.handleSubmit} />
+                    <Button type="button" text="reset" customClass="primary" onClick={() => props.resetIdealPayments()} />
                 </form>
 
             </div>
             <div className="col-4">
                 <Title text="Presets" type="h3" />
-                <PaymentsPresetsTable />
+                <PaymentsPresetsTable {...props} />
             </div>
         </div>
     );

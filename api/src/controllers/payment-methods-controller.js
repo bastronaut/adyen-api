@@ -6,6 +6,9 @@ const PaymentMethodsService = require('../services/payment-methods-service');
 const paymentMethodsService = new PaymentMethodsService();
 const root = constants.routes.root;
 
+/**
+ * Would make more sense as POST to match Adyen API
+ */
 router.get(root, function (req, res, next) {
 
   const amountValue = req.query.a;

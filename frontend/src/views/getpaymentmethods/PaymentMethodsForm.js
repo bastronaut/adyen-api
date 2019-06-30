@@ -18,8 +18,8 @@ function GetPaymentMethodsForm(props) {
 
                 <Input id="gpm-countryCode" label="Country Code" value={props.countryCode} placeholder="NL" updateValue={props.updateCountryCode} />
             </div>
-            <Button type="button" text="submit" customClass="primary mr-4" id="getPaymentMethodsSubmit" onClick={props.handleSubmit} />
-            <Button type="button" text="reset" customClass="primary" id="getPaymentMethodsSubmit" onClick={() => props.resetPaymentMethods()} />
+            <Button type="button" text="submit" customClass="primary mr-2" id="getPaymentMethodsSubmit" onClick={props.handleSubmit} />
+            <Button type="button" text="reset" customClass="primary" onClick={() => props.resetPaymentMethods()} />
 
         </form>
     );
