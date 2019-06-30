@@ -1,9 +1,11 @@
 
 const constants = {
+    port: 3001,
     routes: {
         root: "/",
         paymentMethods: "/paymentMethods",
-        payments: "/payments"
+        payments: "/payments",
+        paymentDetails: "/paymentDetails",
     },
     queryParameters: {
         amount: "a",
@@ -24,7 +26,22 @@ const constants = {
     },
     paymentMethodTypes: {
         ideal: 'ideal',
-        scheme: 'scheme'
+        scheme: 'scheme',
+        applePay: 'applepay',
+        paywithgoogle: 'paywithgoogle',
+    },
+    customCcPaymentTypes: {
+        unsecuredFields: 'unsecuredFields',
+        securedFields: 'securedFields',
+        threeDSecure1: 'threeDSecure1',
+        threeDSecure1SecuredFields: 'threeDSecure1SecuredFields',
+        threeDSecure2: 'threeDSecure2',
+        threeDSecure2: 'threeDSecure2',
+        unsecuredFieldsTokenize: 'unsecuredFieldsTokenize',
+        securedFieldsTokenize: 'securedFieldsTokenize',
+        tokenCCV: 'tokenCCV',
+        tokenCCVSecured: 'tokenCCV',
+        tokenCCV: 'tokenCCV',
     },
     returnUrlReplace: '{id}',
     returnUrl: 'http://bastronaut.dev/payment/{id}',

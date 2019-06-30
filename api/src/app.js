@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const constants = require('./utils/constants')
@@ -10,6 +9,9 @@ const paymentMethodsRoute = constants.routes.paymentMethods;
 
 const paymentsController = require('./controllers/payments-controller');
 const paymentsRoute = constants.routes.payments;
+
+const paymentDetailsController = require('./controllers/payment-details-controller');
+const paymentDetailsRoute = constants.routes.paymentDetails;
 
 const app = express();
 
@@ -23,6 +25,7 @@ app.use(cookieParser());
 // start routes
 app.use(paymentMethodsRoute, paymentMethodsController);
 app.use(paymentsRoute, paymentsController);
+app.use(paymentDetailsRoute, paymentDetailsController);
 
 module.exports = app;
 

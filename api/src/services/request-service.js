@@ -17,7 +17,6 @@ class HTTPRequestService {
     }
 
     post(endpoint, data) {
-
         // Add the merchant account to any post data
         data.merchantAccount = this.merchantAccount;
 

@@ -26,6 +26,8 @@ function PaymentsIdeal(props) {
                         <Input id="pm-paymentMethodType" label="Payment Method Type" value="ideal" disabled="true" />
                         <Input id="pm-issuer" label="Issuer" value="ideal" />
 
+                        <Input id="pm-reference" label="Payment reference" value="123" />
+
                     </div>
                     <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" />
                 </form>

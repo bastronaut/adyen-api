@@ -1,7 +1,8 @@
-//server.js
+const constants = require('./utils/constants')
+
 const app = require('./app')
-const port = 3001;
+const port = constants.port;
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`)
+    console.log(`Adyen API app listening on port ${port}!`)
 })

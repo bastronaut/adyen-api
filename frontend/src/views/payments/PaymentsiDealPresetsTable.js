@@ -23,7 +23,7 @@ function PaymentsiDealPresetsTable(props) {
             "subtext": "in NL, issuer 1123",
             "amount": {
                 "currency": "EUR",
-                "value": 10
+                "value": 50
             },
             "countryCode": "NL",
             "issuer": "1121",
@@ -33,45 +33,6 @@ function PaymentsiDealPresetsTable(props) {
                 "issuer": "1121"
             },
         }
-        // {
-        //     "title": "Credit Card payment of 20 euro",
-        //     "subtext": "Unencrypted",
-        //     "amount": {
-        //         "currency": "EUR",
-        //         "value": 20
-        //     },
-        //     "countryCode": "CN",
-        //     "paymentMethod": {
-        //         "type": "scheme",
-        //         "number": "4111111111111111",
-        //         "expiryMonth": "08",
-        //         "expiryYear": "2018",
-        //         "holderName": "John Smith",
-        //         "cvc": "737",
-        //         "storeDetails": true
-        //     },
-        //     "shopperReference": "yourShopperId_12345",
-        // },
-        // ,
-        // {
-        //     "title": "Credit Card payment of 25 euro",
-        //     "subtext": "Encrypted fields",
-        //     "amount": {
-        //         "currency": "EUR",
-        //         "value": 20
-        //     },
-        //     "countryCode": "CN",
-        //     "paymentMethod": {
-        //         "type": "scheme",
-        //         "number": "4111111111111111",
-        //         "expiryMonth": "08",
-        //         "expiryYear": "2018",
-        //         "holderName": "John Smith",
-        //         "cvc": "737",
-        //         "storeDetails": true
-        //     },
-        //     "shopperReference": "yourShopperId_12345",
-        // },
     ]
     return (
         <ListGroup listItems={listItems} id="paymentsPresetsTable" />

@@ -43,8 +43,7 @@ function PaymentsCard(props) {
                             </div>
                         </div>
 
-
-
+                        <Input id="pm-reference" label="Payment reference" value="123" />
 
                     </div>
                     <Button type="button" text="submit" customClass="primary" id="paymentsSubmit" />
