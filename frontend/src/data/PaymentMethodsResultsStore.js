@@ -19,6 +19,11 @@ class PaymentMethodsResultsStore extends ReduceStore {
                     result: action.result,
                     expectedResult: action.expectedResult
                 }
+            case ActionTypes.GET_PAYMENT_METHODS_FAILED:
+                return {
+                    result: JSON.stringify(action.error, null, 2),
+                    expectedResult: action.expectedResult
+                }
             default:
                 return state;
         }

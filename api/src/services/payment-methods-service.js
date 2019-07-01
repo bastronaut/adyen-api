@@ -26,7 +26,7 @@ class PaymentMethodsService {
             })
             .catch(error => {
                 console.log(error);
-                callback(error, { 'failure': 'todo' });
+                callback(error, { 'failure': error.response.data });
             })
     }
 

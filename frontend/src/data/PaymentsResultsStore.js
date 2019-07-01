@@ -19,9 +19,19 @@ class PaymentsResultsStore extends ReduceStore {
                     result: action.result,
                     expectedResult: action.expectedResult
                 }
+            case ActionTypes.POST_PAYMENTS_IDEAL_FAILED:
+                return {
+                    result: action.error,
+                    expectedResult: action.expectedResult
+                }
             case ActionTypes.POST_PAYMENTS_CC:
                 return {
                     result: action.result,
+                    expectedResult: action.expectedResult
+                }
+            case ActionTypes.POST_PAYMENTS_CC_FAILED:
+                return {
+                    result: action.error,
                     expectedResult: action.expectedResult
                 }
             default:

@@ -7,6 +7,8 @@ const DEFAULTBLANKMESSAGE = '{}';
 const DEFAULTEXPECTEDMESSAGE = 'Expected results are available for presets';
 
 function PaymentsResult(props) {
+    console.log("the props:");
+    console.log(props);
     return (
         <div className='payments-results my-4'>
             <div className='row'>

@@ -37,7 +37,7 @@ const Actions = {
             .catch(error => {
                 Dispatcher.dispatch({
                     type: ActionTypes.GET_PAYMENT_METHODS_FAILED,
-                    error: error
+                    error: error.response.data
                 })
             })
     },
@@ -82,7 +82,7 @@ const Actions = {
             .catch(error => {
                 Dispatcher.dispatch({
                     type: ActionTypes.POST_PAYMENTS_IDEAL_FAILED,
-                    error: error
+                    error: error.response.data
                 })
             });
     },
@@ -134,7 +134,7 @@ const Actions = {
             .catch(error => {
                 Dispatcher.dispatch({
                     type: ActionTypes.POST_PAYMENTS_CC_FAILED,
-                    error: error
+                    error: error.response.data
                 })
             });
     },

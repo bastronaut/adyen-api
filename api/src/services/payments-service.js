@@ -22,7 +22,7 @@ class PaymentsService {
                     .then(response => {
                         callback(response.data);
                     }).catch(error => {
-                        callback(error, { 'failure': error });
+                        callback(error, { 'failure': error.response.data });
                     });
 
                 break;
@@ -33,7 +33,7 @@ class PaymentsService {
                     .then(response => {
                         callback(response.data);
                     }).catch(error => {
-                        callback(error, { 'failure': error });
+                        callback(error, { 'error': 'error', 'config': error.config, 'message': error.message, 'response': error.response.data });
                     });
 
                 break;
