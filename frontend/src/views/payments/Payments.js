@@ -55,10 +55,10 @@ class Payments extends React.Component {
                                 <span className={"nav-link " + (this.state.activeTab === 'card' ? 'active' : '')} onClick={() => this.setState({ activeTab: "card" })}>Unsecured fields Card</span>
                             </li>
                             <li className="nav-item">
-                                <span className={"nav-link " + (this.state.activeTab === '3DS1' ? 'active' : '')} onClick={() => this.setState({ activeTab: "3DS1" })}>Unsecured fields 3DS1 </span>
+                                <span className={"nav-link " + (this.state.activeTab === '3DS1' ? 'active' : '')} onClick={() => this.setState({ activeTab: "3DS1" })}>Unsecured fields 3DSecure1 </span>
                             </li>
                             <li className="nav-item">
-                                <span className={"nav-link " + (this.state.activeTab === '3DS2' ? 'active' : '')} onClick={() => this.setState({ activeTab: "3DS2" })}>Unsecured fields 3DS2 </span>
+                                <span className={"nav-link " + (this.state.activeTab === '3DS2' ? 'active' : '')} onClick={() => this.setState({ activeTab: "3DS2" })}>Unsecured fields 3DSecure2 </span>
                             </li>
                             <li className="nav-item">
                                 <span className={"nav-link " + (this.state.activeTab === 'drop-in' ? 'active' : '')} onClick={() => this.setState({ activeTab: "drop-in" })}>Drop-in components  </span>

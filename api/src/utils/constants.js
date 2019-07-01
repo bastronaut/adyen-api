@@ -5,7 +5,7 @@ const constants = {
         root: "/",
         paymentMethods: "/paymentMethods",
         payments: "/payments",
-        paymentDetails: "/paymentDetails",
+        paymentDetails: "/paymentDetails"
     },
     queryParameters: {
         amount: "a",

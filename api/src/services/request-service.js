@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 const apikeyService = require('../services/apikey-service');
-const constants = require('../../src/utils/constants')
+const constants = require('../../src/utils/constants');
 
 class HTTPRequestService {
 
@@ -13,7 +13,7 @@ class HTTPRequestService {
     }
 
     get(endpoint) {
-        return axios.get(endpoint);
+        return axios.get(constants.routes.apiEndpoint, endpoint);
     }
 
     post(endpoint, data) {
