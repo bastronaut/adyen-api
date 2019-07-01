@@ -3,11 +3,12 @@ const server = "http://157.230.18.44/";
 const apiEndpoint = "api/";
 const local = 'http://localhost:3001/';
 
+let url = "";
 // Some nasty stuff here that should be in an environment variable or config logic
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-    const url = local;
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    url = local;
 } else {
-    const url = server + apiEndpoint;
+    url = server + apiEndpoint;
 }
 
 var Promise = require('es6-promise').Promise;

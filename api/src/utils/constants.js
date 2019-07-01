@@ -2,7 +2,7 @@
 const constants = {
     port: 3001,
     routes: {
-        root: "/",
+        root: "/api",
         paymentMethods: "/paymentMethods",
         payments: "/payments",
         paymentDetails: "/paymentDetails"
