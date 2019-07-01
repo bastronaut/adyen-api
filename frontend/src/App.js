@@ -7,7 +7,7 @@ import './css/App.css';
 
 function App(props) {
   return (
-    <div className="App container">
+    <div className="App container mb-5">
       <Navigation {...props} />
       <hr className="my-4" />
 

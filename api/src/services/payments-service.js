@@ -31,7 +31,7 @@ class PaymentsService {
 
                 this._makeCreditCardPayment(paymentData)
                     .then(response => {
-                        callback(response);
+                        callback(response.data);
                     }).catch(error => {
                         callback(error, { 'failure': error });
                     });

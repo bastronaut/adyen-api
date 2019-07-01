@@ -17,9 +17,9 @@ function getState() {
         getPaymentMethods: Actions.getPaymentMethods,
         resetPaymentMethods: Actions.resetPaymentMethods,
         postIdealPayments: Actions.postIdealPayments,
-        resetIdealPayments: Actions.resetIdealPayments,
+        resetPayments: Actions.resetPayments,
         postUnsecuredCardPayments: Actions.postUnsecuredCardPayments,
-        resetUnsecuredCardPayments: Actions.resetUnsecuredCardPayments
+
     };
 }
 

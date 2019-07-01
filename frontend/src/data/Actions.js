@@ -88,7 +88,7 @@ const Actions = {
     },
 
 
-    resetIdealPayments() {
+    resetPayments() {
         Dispatcher.dispatch({
             type: ActionTypes.POST_PAYMENTS_CC,
             result: "",
@@ -97,15 +97,46 @@ const Actions = {
     },
 
     postUnsecuredCardPayments(unsecuredCardPayment, expectedResponse = "") {
+        const postData = {
+            country: unsecuredCardPayment.countryCode,
+            reference: unsecuredCardPayment.reference,
+            paymentMethod: {
+                type: "scheme",
+                ccPaymentType: "unsecuredFields",
+                number: unsecuredCardPayment.number,
+                expiryYear: unsecuredCardPayment.expiryYear,
+                expiryMonth: unsecuredCardPayment.expiryMonth,
+                number: unsecuredCardPayment.number,
+                cvc: unsecuredCardPayment.cvc,
+                holderName: unsecuredCardPayment.holderName
+            },
+            amount: {
+                value: unsecuredCardPayment.amountValue,
+                currency: unsecuredCardPayment.currency
+            }
+        };
 
-    },
+        // optionally trigger 3DS1
+        if (unsecuredCardPayment.threeDS1) {
+            postData.additionalData = {
+                "executeThreeD": "true"
+            }
+        }
 
-    resetUnsecuredCardPayments() {
-        Dispatcher.dispatch({
-            type: ActionTypes.POST_PAYMENTS_CC,
-            result: "",
-            expectedResult: ""
-        })
+        Api.post(PAYMENTS, postData)
+            .then(payment => {
+                Dispatcher.dispatch({
+                    type: ActionTypes.POST_PAYMENTS_CC,
+                    result: payment,
+                    expectedResult: expectedResponse
+                });
+            })
+            .catch(error => {
+                Dispatcher.dispatch({
+                    type: ActionTypes.POST_PAYMENTS_CC_FAILED,
+                    error: error
+                })
+            });
     },
 
 };

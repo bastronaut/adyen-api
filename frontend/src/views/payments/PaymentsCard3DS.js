@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Input from '../../components/form/Input';
 
 
-function PaymentsCard(props) {
+function PaymentsCard3DS(props) {
     return (
         <div className="row">
             <div className="col">
@@ -62,12 +62,11 @@ function PaymentsCard(props) {
 
             </div>
             <div className="col-4">
-                <Title text="Presets" type="h3" />
-                <CardPaymentsPresetsTable {...props} />
+
             </div>
         </div >
 
     );
 }
 
-export default PaymentsCard;
+export default PaymentsCard3DS;

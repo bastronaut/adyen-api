@@ -21,17 +21,17 @@ function PaymentsIdeal(props) {
                             </div>
                         </div>
 
-                        <Input id="pm-countryCode" label={props.countryCode} placeholder="NL" updateValue={props.updateCountryCode} />
+                        <Input id="pm-countryCode" label="Country Code" value={props.countryCode} placeholder="NL" updateValue={props.updateCountryCode} />
 
                         <Input id="pm-paymentMethodType" label="Payment Method Type" value="ideal" disabled="true" />
 
-                        <Input id="pm-issuer" label="Issuer ID" value={props.issuerId} placeholder="Issuer ID" updateValue={props.updateIssuer} />
+                        <Input id="pm-issuer" label="Issuer ID" value={props.issuer} placeholder="Issuer ID" updateValue={props.updateIssuer} />
 
-                        <Input id="pm-reference" label="Payment reference" placeholder="12345" updateValue={props.updatePaymentReference} />
+                        <Input id="pm-reference" label="Payment reference" value={props.reference} placeholder="1" updateValue={props.updatePaymentReference} />
 
                     </div>
                     <Button type="button" text="submit" customClass="primary mr-2" id="paymentsSubmit" onClick={props.handleSubmit} />
-                    <Button type="button" text="reset" customClass="primary" onClick={() => props.resetIdealPayments()} />
+                    <Button type="button" text="reset" customClass="primary" onClick={() => props.resetPayments()} />
                 </form>
 
             </div>

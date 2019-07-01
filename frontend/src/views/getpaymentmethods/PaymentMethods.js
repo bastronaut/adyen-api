@@ -21,8 +21,8 @@ class GetPaymentMethods extends React.Component {
 
     render() {
         return (
-            <div>
-                <Title text="Payment Methods" type="h1" />
+            <div className="mb-10">
+                <Title text="Payment Methods" type="h1" customClass="text-center" />
                 <div className="row">
                     <div className="col">
                         <GetPaymentMethodsForm {...this.props}
@@ -64,8 +64,6 @@ class GetPaymentMethods extends React.Component {
             countryCode: event.target.value
         });
     }
-
-
 
     clickPresetTable(preset) {
         this.setState({
